@@ -2,14 +2,14 @@ package it.polito.tdp.formulaone.model;
 
 public class LapTime {
 
-	private int raceId ; // refers to {@link Race}
-	private int driverId ; // referst to {@link Driver}
+	private Race raceId ; // refers to {@link Race}
+	private Driver driverId ; // referst to {@link Driver}
 	private int lap ;
 	// NOT: only the combination of the 3 fields (raceId, driverId, lap) is guaranteed to be unique
 	private int position ;
 	private String time ; // printable version of lap time
 	private int miliseconds ; // numerical version, sutable for computations
-	public LapTime(int raceId, int driverId, int lap, int position, String time, int miliseconds) {
+	public LapTime(Race raceId, Driver driverId, int lap, int position, String time, int miliseconds) {
 		super();
 		this.raceId = raceId;
 		this.driverId = driverId;
@@ -18,16 +18,20 @@ public class LapTime {
 		this.time = time;
 		this.miliseconds = miliseconds;
 	}
-	public int getRaceId() {
+	public Race getRaceId() {
 		return raceId;
 	}
-	public void setRaceId(int raceId) {
+	@Override
+	public String toString() {
+		return "LapTime [driverId=" + driverId + ", lap=" + lap + ", miliseconds=" + miliseconds + "]";
+	}
+	public void setRaceId(Race raceId) {
 		this.raceId = raceId;
 	}
-	public int getDriverId() {
+	public Driver getDriverId() {
 		return driverId;
 	}
-	public void setDriverId(int driverId) {
+	public void setDriverId(Driver driverId) {
 		this.driverId = driverId;
 	}
 	public int getLap() {
